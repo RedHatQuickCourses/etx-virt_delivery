@@ -52,8 +52,8 @@ mtv_migrate_migration_request: # <1>
   plan_name: etx-migration # <10>
   start_migration: true # <11>
   vms: # <12>
-    - path: "/RS00/vm/ETX/student-<id>/win2019-1" # <13>
-    - path: "/RS00/vm/ETX/student-<id>/win2019-2"
+    - path: "/RS00/vm/ETX-Self-paced/student-<id>/win2019-1" # <13>
+    - path: "/RS00/vm/ETX-Self-paced/student-<id>/win2019-2"
 ----
 <1> Migration Request Variable
 <2> Name of the namespace that resources will be created within

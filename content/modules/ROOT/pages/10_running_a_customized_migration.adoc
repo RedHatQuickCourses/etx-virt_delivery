@@ -174,8 +174,8 @@ mtv_migrate_migration_request:
   plan_name: etx-update-mac
   start_migration: true
   vms:
-    - path: "/RS00/vm/ETX/student-<ID>/rhel86"
-    - path: "/RS00/vm/ETX/student-<ID>/rhel93"
+    - path: "/RS00/vm/ETX-Self-paced/student-<ID>/rhel86"
+    - path: "/RS00/vm/ETX-Self-paced/student-<ID>/rhel93"
 ----
 
 Once again, be sure to update `<ID>` in the `vms` property with your student ID.
