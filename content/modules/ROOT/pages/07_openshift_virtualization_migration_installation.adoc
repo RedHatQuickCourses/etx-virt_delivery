@@ -73,7 +73,8 @@ Consult the link:https://podman.io[Podman website] for any additional questions.
 
 The Execution Environment supporting the Ansible for OpenShift Virtualization Migration is located within a private Container registry.
 As as a result, you will need to provide credentials in order to obtain the image.
-Follow the lab support guide to get the credentials, login to the remote registry:
+
+Follow the lab support guide to get the informaiton on login to the remote registry:
 
 [source,sh,role=execute,subs="attributes"]
 ----
