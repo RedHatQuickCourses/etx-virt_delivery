@@ -1,5 +1,11 @@
 # Preparing for migrations
 
+[IMPORTANT]
+====
+This lab is not available for hands-on practice at this time due to restrictions on credential sharing.
+You are welcome to use it as a guide to learn the core concepts.
+====
+
 The installation of Ansible for OpenShift Virtualization Migration configured many of the primitives that are used to support the migration of Virtual Machines into OpenShift in an automated fashion.
 
 As individual Migration Waves are defined and related applications are migrated into OpenShift, dedicated Projects/Namespaces are created to better organize and manage content.

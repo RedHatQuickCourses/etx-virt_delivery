@@ -1,5 +1,11 @@
 # Running a Customized Migration
 
+[IMPORTANT]
+====
+This lab is not available for hands-on practice at this time due to restrictions on credential sharing.
+You are welcome to use it as a guide to learn the core concepts.
+====
+
 In the prior exercise xref:09_running_a_migration.adoc[Running a Migration], you explored how the Ansible for OpenShift Virtualization Migration can be used to Migrate several Virtual Machines from VMware to OpenShift.
 
 As part of migration activities, there may be a need to customize the actions that takes place as Virtual Machines are brought into OpenShift.

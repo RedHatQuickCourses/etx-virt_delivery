@@ -1,5 +1,11 @@
 # Running a migration
 
+[IMPORTANT]
+====
+This lab is not available for hands-on practice at this time due to restrictions on credential sharing.
+You are welcome to use it as a guide to learn the core concepts.
+====
+
 The Ansible for OpenShift Virtualization Migration includes capabilities to simplify the process for migrating Virtual Machines into OpenShift.
 
 In the prior exercise, xref:08_preparing_for_migrations.adoc[Preparing for Migrations], the supporting set of resources, including _NetworkMaps_ and _StorageMaps_ were created in the _Namespace_ where migration activities will occur.

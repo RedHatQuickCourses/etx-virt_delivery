@@ -2,8 +2,13 @@
 
 [IMPORTANT]
 ====
+This lab is not available for hands-on practice at this time due to restrictions on credential sharing.
+You are welcome to use it as a guide to learn the core concepts.
+====
+
+[IMPORTANT]
+====
 From this section onward, you will need access to Ansible Execution Environment and VMware environment.
-Please follow the Lab support guide for more information on this.
 ====
 
 The Ansible for OpenShift Virtualization Migration is a set of Ansible based tooling, powered by Ansible Automation Platform (AAP), that simplifies the use of OpenShift Virtualization and focuses on three (3) primary areas:
@@ -74,7 +79,7 @@ Consult the link:https://podman.io[Podman website] for any additional questions.
 The Execution Environment supporting the Ansible for OpenShift Virtualization Migration is located within a private Container registry.
 As as a result, you will need to provide credentials in order to obtain the image.
 
-Follow the lab support guide to get the informaiton on login to the remote registry:
+Login to the remote registry:
 
 [source,sh,role=execute,subs="attributes"]
 ----
@@ -94,7 +99,6 @@ Source code, including Automation tooling (playbooks, collections, etc) for the 
 
 Clone the Ansible for OpenShift Virtualization Migration Ansible Collection (`infra.openshift_virtualization_migration`) source code to your local machine and change into the cloned directory.
 When prompted, enter your GitLab username and personal access token as password.
-In case you don't have personal access token, then follow the lab support guide to create new one.
 
 [source,sh,role=execute,subs="attributes"]
 ----
@@ -105,6 +109,18 @@ git clone https://gitlab.consulting.redhat.com/redhat-cop/openshift-virtualizati
 ----
 cd openshift_virtualization_migration
 ----
+
+[NOTE]
+====
+GitLab - Git Credentials to retrieve the Ansible for OpenShift Virtualization Migration Ansible Content Collection
+
+* Login to https://gitlab.consulting.redhat.com/ with sso
+* Create Personal Access Token - Edit profile > Access tokens > Personal access tokens > Add new token
+* Clone the repository - https://gitlab.consulting.redhat.com/redhat-cop/openshift-virtualization-migration/openshift_virtualization_migration.git[GitLab Repo - openshift_virtualization_migration]
+** Provide your username
+** Provide your personal access token as password
+* Use above credentials as `git_username` and `git_password` in inventory file in future section
+====
 
 ### Setting Environment Variables
 
@@ -282,7 +298,20 @@ Open the `inventory-etx.yml` file as you will begin editing the content with the
 
 There are several methods for which Ansible Automation Platform can be subscribed, including using a Service Account from the Red Hat Hybrid Cloud Console or a Subscription manifest.
 
-You can follow the insructions from the lab support gudie to create and download your own manifest.
+[NOTE]
+====
+Create and download your own manifest
+
+* Create a https://docs.redhat.com/en/documentation/red_hat_ansible_automation_platform/2.5/html/access_management_and_authentication/assembly-gateway-licensing#proc-create-subscription-allocation_obtain-manifest[subscription allocation]
+* https://docs.redhat.com/en/documentation/red_hat_ansible_automation_platform/2.5/html/access_management_and_authentication/assembly-gateway-licensing#proc-add-merge-subscriptions[Adding subscriptions to a subscription allocation]
+* https://docs.redhat.com/en/documentation/red_hat_ansible_automation_platform/2.5/html/access_management_and_authentication/assembly-gateway-licensing#proc-aap-generate-manifest-file[Downloading a manifest file] to your local machine
+* In case you are using bastion machine provided by the RHDP then use scp command to copy from your local machine to bastion. For example,
+
+  user-mac:~ user$ scp -P 32688 Downloads/manifest_user-aapsub_20250808T185832Z.zip lab-user@ssh.ocpv07.rhdp.net:aap-manifest.zip
+
+You will get bastion login details from the info tab in demo.
+====
+
 // For this workshop, you will make use of a Subscription manifest that provides the necessary entitlements for the target Ansible Automation Platform.
 // Download the manifest file to your local machine from the location provided by the instructors.
 
@@ -316,8 +345,6 @@ Update this file using the steps described below.
 The `all` Inventory Group applies variables to every _Inventory Group_ that is defined.
 
 To obtain the Ansible for OpenShift Virtualization Migration Ansible Execution Environment, set the `container_username` and `container_password` properties using the credentials from Migration Factory collections.
-
-You can refer the lab support guide for this.
 
 [source,yaml]
 ----
