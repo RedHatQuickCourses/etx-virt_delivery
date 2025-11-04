@@ -11,3 +11,6 @@
 ** xref:08_preparing_for_migrations.adoc[Preparing for Migrations]
 ** xref:09_running_a_migration.adoc[Running a Migration]
 ** xref:10_running_a_customized_migration.adoc[Running a Customized Migration]
+
+* Reference
+** xref:VMware_setup.adoc[VMware Setup]

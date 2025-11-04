@@ -9,6 +9,7 @@ You are welcome to use it as a guide to learn the core concepts.
 [IMPORTANT]
 ====
 From this section onward, you will need access to Ansible Execution Environment and VMware environment.
+If you want to use your VMware Environment then you can follow the xref:VMware_setup.adoc[VMware Setup].
 ====
 
 The Ansible for OpenShift Virtualization Migration is a set of Ansible based tooling, powered by Ansible Automation Platform (AAP), that simplifies the use of OpenShift Virtualization and focuses on three (3) primary areas:
@@ -93,6 +94,13 @@ Pull the Execution Environment to your local machine
 podman pull quay.io/redhat-cop/openshift-virtualization-migration-ee:2.5
 ----
 
+[source,texinfo,subs="attributes"]
+----
+$ podman images
+REPOSITORY                                                TAG         IMAGE ID      CREATED       SIZE
+quay.io/redhat-cop/openshift-virtualization-migration-ee  2.5         1a14e9cef3f7  3 months ago  1.05 GB
+----
+
 ### Source Code
 
 Source code, including Automation tooling (playbooks, collections, etc) for the Ansible for OpenShift Virtualization Migration are located within a protected Git repository within the link:https://gitlab.consulting.redhat.com[Red Hat Consulting GitLab instance] and the link:https://gitlab.consulting.redhat.com/redhat-cop/openshift-virtualization-migration/openshift_virtualization_migration[openshift-virtualization-migration] group.
@@ -162,7 +170,7 @@ If the repository is not available on your machine, you can obtain the repositor
 
 [source,sh,role=execute,subs="attributes"]
 ----
-cd /home/lab-user
+cd
 ----
 
 [source,sh,role=execute,subs="attributes"]
@@ -186,6 +194,14 @@ Confirm that both the `OPENSHIFT_VIRTUALIZATION_MIGRATION_REPO` and `ETX_REPO` e
 [source,sh,role=execute,subs="attributes"]
 ----
 env | grep -E "^ETX_REPO|^OPENSHIFT_VIRTUALIZATION_MIGRATION_REPO"
+----
+
+.Sample Output
+[source,texinfo,subs="attributes"]
+----
+$ env | grep -E "^ETX_REPO|^OPENSHIFT_VIRTUALIZATION_MIGRATION_REPO"
+ETX_REPO=/home/cloud-user/etx-virt_delivery
+OPENSHIFT_VIRTUALIZATION_MIGRATION_REPO=/home/cloud-user/openshift_virtualization_migration
 ----
 
 ## Building your Ansible Inventory

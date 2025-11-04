@@ -1,0 +1,222 @@
+# VMware Setup
+
+Here few tips and steps are shared to replicate Demo Platform like VMware setup.
+
+## Create vSphere User for Migration
+
+* Login to your vSphere as admin user and create the vSphere user.
++
+image::VMware/user_create.png[link=self, window=blank, width=100%]
++
+image::VMware/user_create1.png[link=self, window=blank, width=100%]
+
+* Create custom role say `Sandbox User` with following privilege/access.
+
+====
+*  Cns
+** Searchable
+
+* Content Library
+** Add library item
+** Check in a template
+** Check out a template
+** Create local library
+** Delete local library
+** Download files
+** Evict library item
+** Evict subscribed library
+** Import storage
+** Read storage
+** Type introspection
+** Update files
+** Update library
+** Update library item
+** Update local library
+** Update subscribed library
+** View configuration settings
+
+* Cryptographic operations
+** Clone
+** Decrypt
+** Direct Access
+** Encrypt
+** Encrypt new
+** Register VM
+
+* Datastore
+** Allocate space
+** Browse datastore
+** Low level file operations
+
+* Global
+** Cancel task
+** Disable methods
+** Enable methods
+** Licenses
+
+* vSphere Tagging
+** Assign or Unassign vSphere Tag
+** Assign or Unassign vSphere Tag on Object
+** Create vSphere Tag
+** Create vSphere Tag Category
+** Delete vSphere Tag
+** Delete vSphere Tag Category
+** Edit vSphere Tag
+** Edit vSphere Tag Category
+** Modify UsedBy Field For Category
+** Modify UsedBy Field For Tag
+
+* Network
+** Assign network
+
+* Resource
+** Assign virtual machine to resource pool
+
+* Scheduled task
+** Create tasks
+** Modify task
+** Remove task
+** Run task
+
+* Sessions
+** Validate session
+
+* VM storage policies
+** Update VM storage policies
+** View VM storage policies
+
+* vApp
+** Add virtual machine
+** Assign resource pool
+** Clone
+** Create
+** Export
+** Import
+** vApp application configuration
+** vApp instance configuration
+
+* Virtual machine
+** Change Configuration
+*** Acquire disk lease
+*** Add existing disk
+*** Add new disk
+*** Add or remove device
+*** Advanced configuration
+*** Change CPU count
+*** Change Memory
+*** Change Settings
+*** Change Swapfile placement
+*** Change resource
+*** Configure managedBy
+*** Extend virtual disk
+*** Modify device settings
+*** Reload from path
+*** Remove disk
+*** Rename
+*** Reset guest information
+*** Set annotation
+*** Upgrade virtual machine compatibility
+** Edit Inventory
+*** Create from existing
+*** Create new
+*** Move
+*** Register
+*** Remove
+*** Unregister
+** Guest operations
+*** Guest operation modifications
+** Interaction
+*** Answer question
+*** Configure CD media
+*** Configure floppy media
+*** Connect devices
+*** Console interaction
+*** Guest operating system management by VIX API
+*** Install VMware Tools
+*** Power off
+*** Power on
+*** Reset
+*** Suspend
+** Provisioning
+*** Allow disk access
+*** Allow file access
+*** Allow read-only disk access
+*** Allow virtual machine download
+*** Allow virtual machine files upload
+*** Clone template
+*** Clone virtual machine
+*** Create template from virtual machine
+*** Customize guest
+*** Deploy template
+*** Mark as template
+*** Mark as virtual machine
+*** Modify customization specification
+*** Promote disks
+*** Read customization specifications
+** Snapshot management
+*** Create snapshot
+*** Remove snapshot
+*** Rename snapshot
+*** Revert to snapshot
+====
+
+* Create custom role say `Sandbox User - Datacenter Level` with following privilege/access.
+
+====
+* Cns
+** Searchable
+
+* Datastore
+** Browse datastore
+
+* Global
+** Cancel task
+
+* Scheduled task
+** Create tasks
+** Modify task
+** Remove task
+** Run task
+
+* Sessions
+** Validate session
+
+* VM storage policies
+** View VM storage policies
+====
+
+* Assign the custom `Sandbox User` role to user at network and datastore level.
++
+image::VMware/access_network.png[link=self, window=blank, width=100%]
++
+image::VMware/access_datastore.png[link=self, window=blank, width=100%]
+
+* Assign the custom `Sandbox User - Datacenter Level` role to user at datacenter level.
++
+image::VMware/access_datacenter.png[link=self, window=blank, width=100%]
+
+## Create Folder Structure
+
+* You can refer the link:https://github.com/RedHatQuickCourses/etx-virt_delivery/blob/self-paced/content/ansible/vars.yml[var file] for the vSphere folder structure.
++
+image::VMware/folder_structure.png[link=self, window=blank, width=100%]
+
+* First create the parent folder `ETX-Self-paced` and `Templates` folder in case not created.
+* Assign the `Administrator` role to user for `ETX-Self-paced` folder.
++
+image::VMware/access_folder.png[link=self, window=blank, width=100%]
+* Under `Templates` folder create `ETX-Self-paced-Templates` folder.
+
+## Create VM Templates in vSphere Cluster
+
+* You will need to create the VMs manually first. In current setup, VMs were created using ISOs first.
+* You can convert any powered off virtual machine to a template by calling `VirtualMachine.MarkAsTemplate`.
+* After the conversion, the original virtual machine no longer exists.
+* You can use the template to create multiple clones of the same configuration.
+* You can give same link:https://github.com/RedHatQuickCourses/etx-virt_delivery/blob/self-paced/content/ansible/vars.yml[template name] as in lab exercise to work with automation.
+* You can save the templates in `Templates` > `ETX-Self-paced-Templates` folder.
+
+## Create VMs in vSphere Cluster
+
+* Update the `vsphere_host`, `vsphere_user`, `datacenter`, `cluster`, and `datastore` variables as per your environment in the link:https://github.com/RedHatQuickCourses/etx-virt_delivery/blob/self-paced/content/ansible/vars.yml[var file].
+* Follow the instructions in link:https://github.com/RedHatQuickCourses/etx-virt_delivery/blob/self-paced/content/ansible/readme.md[readme] file to create and remove the VMs on vSphere cluster.
