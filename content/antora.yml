@@ -1,11 +1,11 @@
 name: modules
-title: "Product Enablement: ETX Virtualization Lab"
+title: "Product Enablement: OpenShift Virtualization and Migration Lab"
 version: master
 nav:
   - modules/ROOT/nav.adoc
 
 asciidoc:
   attributes:
-    lab_name: "Product Enablement: ETX Virtualization Lab"
+    lab_name: "Product Enablement: OpenShift Virtualization and Migration Lab"
     release-version: master
     page-pagination: true

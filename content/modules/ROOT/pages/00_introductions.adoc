@@ -1,6 +1,6 @@
-= Product Enablement: ETX Virtualization Lab
+= Product Enablement: OpenShift Virtualization and Migration Lab
 
-Welcome to the ETX Virtualization Lab.
+Welcome to the OpenShift Virtualization and Migration Lab.
 This lab is the self-paced version of the ETX-Virtualization Delivery Workshop.
 
 == Objectives
@@ -12,7 +12,7 @@ On completing this lab, you should be able to:
 * Migrate Virtual Machines
 * Perform Template Management
 * Use Virtualization Migration Assessment (VMA) Tools
-* Migrate Virtual Machines from VMware to OpenShift Virtualization using Ansible
+* Migrate Virtual Machines from VMware to OpenShift Virtualization using Ansible (Coming Soon)
 
 == Environment Variables
 
