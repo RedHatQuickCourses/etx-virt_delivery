@@ -1,6 +1,6 @@
-= Product Enablement: ETX Virtualization Lab
+= Product Enablement: OpenShift Virtualization and Migration Lab
 
-Welcome to the ETX Virtualization Lab.
+Welcome to the OpenShift Virtualization and Migration Lab.
 This lab is the self-paced version of the ETX-Virtualization Delivery Workshop.
 
 == Objectives
