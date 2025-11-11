@@ -1,6 +1,6 @@
 ---
 site:
-  title: "Product Enablement: ETX Virtualization Lab"
+  title: "Product Enablement: OpenShift Virtualization and Migration Lab"
   start_page: modules::00_introductions.adoc
 
 content:
